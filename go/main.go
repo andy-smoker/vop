@@ -13,10 +13,13 @@ func main() {
 	fmt.Println(Valid(input))
 }
 
+// Valid - проверяем валидность пары скобок
 func Valid(s string) bool {
+	// создаём для временного хранения зкрывающей скобки
 	tmp := ""
-
+	// перебераем символы в строке
 	for _, i := range s {
+		// определяем является ли символ одной из скобок
 		if strings.Contains(pool, string(i)) {
 			switch i {
 			case '(':
@@ -29,6 +32,7 @@ func Valid(s string) bool {
 				tmp = "}" + tmp
 				break
 			default:
+				// проверка закрывающей части скобки
 				if tmp[0] == byte(i) {
 					tmp = tmp[1:]
 				} else {
